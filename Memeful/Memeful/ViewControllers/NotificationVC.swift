@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  NotificationVC.swift
 //  Memeful
 //
 //  Created by Sunmoon on 22/01/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class NotificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("Welcome to NotificationViewController")
     }
 
 
 }
-

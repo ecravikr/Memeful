@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SearchVC.swift
 //  Memeful
 //
 //  Created by Sunmoon on 22/01/20.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("Welcome to SearchViewController")
     }
-
-
 }
-

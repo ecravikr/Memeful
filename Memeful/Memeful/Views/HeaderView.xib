@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="Memeful" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="362"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NeI-x9-8yy">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpa-Ys-t6Z">
+                    <rect key="frame" x="16" y="282" width="125" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="J80-Xa-esc"/>
+                        <constraint firstAttribute="height" constant="34" id="LqR-lj-0j2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="meme">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        </preferredSymbolConfiguration>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t7-Xb-gOD">
+                    <rect key="frame" x="149" y="282" width="125" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="39U-QE-0OL"/>
+                        <constraint firstAttribute="width" constant="125" id="Thu-si-IJi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="college">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        </preferredSymbolConfiguration>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mo-P3-Myf">
+                    <rect key="frame" x="16" y="331" width="378" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="SXW-N3-dmj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NeI-x9-8yy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="2Mk-vq-A1F"/>
+                <constraint firstItem="8Mo-P3-Myf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3CB-1C-8cH"/>
+                <constraint firstItem="NeI-x9-8yy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="54O-h1-iQH"/>
+                <constraint firstItem="zpa-Ys-t6Z" firstAttribute="top" secondItem="NeI-x9-8yy" secondAttribute="bottom" constant="28" id="OYe-Kd-YzC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7t7-Xb-gOD" secondAttribute="bottom" constant="46" id="QFK-hU-lbt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8Mo-P3-Myf" secondAttribute="bottom" constant="13" id="TiF-jB-ERu"/>
+                <constraint firstItem="zpa-Ys-t6Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="VJg-Uc-2Zq"/>
+                <constraint firstItem="7t7-Xb-gOD" firstAttribute="leading" secondItem="zpa-Ys-t6Z" secondAttribute="trailing" constant="8" id="emk-VY-Wh9"/>
+                <constraint firstItem="NeI-x9-8yy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gFw-0Z-E1J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Mo-P3-Myf" secondAttribute="trailing" constant="20" id="vw3-4b-o7o"/>
+                <constraint firstItem="8Mo-P3-Myf" firstAttribute="top" secondItem="zpa-Ys-t6Z" secondAttribute="bottom" constant="15" id="zii-JB-72L"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="collageButton" destination="7t7-Xb-gOD" id="ckp-WL-rRq"/>
+                <outlet property="imageView" destination="NeI-x9-8yy" id="u9D-Wd-94c"/>
+                <outlet property="memeButton" destination="zpa-Ys-t6Z" id="xHn-CS-VKq"/>
+                <outlet property="totalViewLabel" destination="8Mo-P3-Myf" id="ycK-a6-p0m"/>
+            </connections>
+            <point key="canvasLocation" x="118.84057971014494" y="-92.119565217391312"/>
+        </view>
+    </objects>
+</document>
