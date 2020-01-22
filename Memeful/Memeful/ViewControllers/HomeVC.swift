@@ -28,6 +28,14 @@ class HomeViewController: UIViewController {
         getMemeList()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     func getMemeList(){
         let meme = Meme()
         self.memeList.append(meme)
@@ -61,6 +69,7 @@ extension HomeViewController:  UICollectionViewDelegate, UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        self.tabBarController?.tabBar.isHidden = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let memeDetailVC:MemeDetailViewController = storyboard.instantiateViewController(identifier: "memeDetailVC")
         memeDetailVC.meme = memeList[indexPath.item]
