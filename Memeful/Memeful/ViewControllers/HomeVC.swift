@@ -37,15 +37,13 @@ class HomeViewController: UIViewController {
     }
     
     func getMemeList(){
-        let meme = Meme()
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        self.memeList.append(meme)
-        memeCollectionView.reloadData()
+        APIKit.shared.getGalary { (aDataList) in
+            self.memeList = aDataList!.data
+            DispatchQueue.main.async {
+                self.memeCollectionView.reloadData()
+            }            
+        }
+        
     }
 
 
@@ -71,7 +69,7 @@ extension HomeViewController:  UICollectionViewDelegate, UICollectionViewDataSou
         
         self.tabBarController?.tabBar.isHidden = true
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let memeDetailVC:MemeDetailViewController = storyboard.instantiateViewController(identifier: "memeDetailVC")
+        let memeDetailVC:MemeDetailViewController = storyboard.instantiateViewController(identifier: "memeDetailVC") as MemeDetailViewController
         memeDetailVC.meme = memeList[indexPath.item]
         self.navigationController?.pushViewController(memeDetailVC, animated: true)
     }
@@ -83,6 +81,7 @@ extension HomeViewController:  UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(
        _ collectionView: UICollectionView,
        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return memeList[indexPath.item].posterSize!.height
+        let meme = memeList[indexPath.item]
+        return CGFloat(meme.images?.first?.height ?? 0)
      }
 }

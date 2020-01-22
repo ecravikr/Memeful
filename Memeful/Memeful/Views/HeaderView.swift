@@ -18,12 +18,12 @@ class HeaderView: UIView {
     func setUpHeaderView(meme:Meme){
         self.memeButton.backgroundColor = UIColor.red
         self.collageButton.backgroundColor = UIColor.blue
-        if let totalViewsCount = meme.totalViews{
+        if let totalViewsCount = meme.views{
             self.totalViewLabel.text = "\(totalViewsCount) views"
         }
-        if let poster = meme.poster{
-            //self.poster.load(url: URL(string: poster)!)
-            self.imageView.loadFromAssets()
+        if let link = meme.images?.first?.link{
+            self.imageView.load(url: URL(string: link)!)
+            //self.imageView.loadFromAssets()
         }
         
     }

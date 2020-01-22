@@ -22,12 +22,12 @@ class MemeCell: UICollectionViewCell {
     func setupMemeCell(withMeme meme:Meme){
         
         self.titleLabel.text = meme.title?.capitalized
-        if let points = meme.totalPoints{
+        if let points = meme.points{
             self.likeLabel.text = "↑ \(points) Points"
         }
-        if let poster = meme.poster{
-            //self.poster.load(url: URL(string: poster)!)
-            self.imageView.loadFromAssets()
+        if let link = meme.images?.first?.link{
+            self.imageView.load(url: URL(string: link)!)
+            //self.imageView.loadFromAssets()
         }
         
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Meme: NSObject {
+class Meme1: NSObject {
     var title:String?
     var poster:String?
     var totalPoints:Int?
@@ -22,4 +22,29 @@ class Meme: NSObject {
         self.totalViews = 3000
         self.posterSize = CGSize(width: 480, height: 245)
     }
+}
+
+struct MemeList: Codable {
+    var data:[Meme]
+}
+struct Meme: Codable {
+    var title: String?
+    var id: String?
+    var ups:Int?
+    var downs:Int?
+    var points:Int?
+    var comment_count:Int?
+    var images_count:Int?
+    var images:[MemeImage]?
+    var views:Int?
+    
+}
+struct MemeImage:Codable {
+    var id:String?
+    var type:String?
+    var width:Int?
+    var height:Int?
+    var views:Int?
+    var link:String?
+    
 }

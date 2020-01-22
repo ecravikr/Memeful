@@ -26,6 +26,7 @@
 		1D949BA723D8C67600882335 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D949BA623D8C67600882335 /* HeaderView.swift */; };
 		1D949BA923D8C92100882335 /* MemeCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D949BA823D8C92100882335 /* MemeCommentsCell.xib */; };
 		1D949BAB23D8CB1800882335 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D949BAA23D8CB1800882335 /* UIView+Extension.swift */; };
+		1D949BAE23D8DAA500882335 /* APIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D949BAD23D8DAA500882335 /* APIKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		1D949BA623D8C67600882335 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1D949BA823D8C92100882335 /* MemeCommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemeCommentsCell.xib; sourceTree = "<group>"; };
 		1D949BAA23D8CB1800882335 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		1D949BAD23D8DAA500882335 /* APIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		1D0BA7E123D890F300E0436B /* Memeful */ = {
 			isa = PBXGroup;
 			children = (
+				1D949BAC23D8DA9000882335 /* APIKit */,
 				1D0BA81223D8BEF400E0436B /* ViewControllers */,
 				1D0BA80D23D8A90600E0436B /* Healper */,
 				1D0BA80823D8A08700E0436B /* Extensions */,
@@ -144,6 +147,14 @@
 				1D949BA223D8C1B400882335 /* MemeDetailVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1D949BAC23D8DA9000882335 /* APIKit */ = {
+			isa = PBXGroup;
+			children = (
+				1D949BAD23D8DAA500882335 /* APIKit.swift */,
+			);
+			path = APIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				1D0BA80A23D8A0B700E0436B /* UIImageView+Extensions.swift in Sources */,
 				1D0BA7FB23D8941300E0436B /* SearchVC.swift in Sources */,
 				1D0BA7F923D893E700E0436B /* HomeVC.swift in Sources */,
+				1D949BAE23D8DAA500882335 /* APIKit.swift in Sources */,
 				1D0BA80123D8947F00E0436B /* ProfileVC.swift in Sources */,
 				1D0BA81123D8B7CC00E0436B /* CustomLayoutDelegate.swift in Sources */,
 				1D949BA323D8C1B400882335 /* MemeDetailVC.swift in Sources */,

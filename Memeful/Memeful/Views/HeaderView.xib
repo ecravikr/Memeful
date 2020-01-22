@@ -43,7 +43,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000 views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mo-P3-Myf">
-                    <rect key="frame" x="16" y="331" width="82" height="18"/>
+                    <rect key="frame" x="16" y="331" width="378" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="SXW-N3-dmj"/>
                     </constraints>
@@ -63,7 +63,7 @@
                 <constraint firstItem="zpa-Ys-t6Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="VJg-Uc-2Zq"/>
                 <constraint firstItem="7t7-Xb-gOD" firstAttribute="leading" secondItem="zpa-Ys-t6Z" secondAttribute="trailing" constant="8" id="emk-VY-Wh9"/>
                 <constraint firstItem="NeI-x9-8yy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gFw-0Z-E1J"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Mo-P3-Myf" secondAttribute="trailing" constant="316" id="vw3-4b-o7o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Mo-P3-Myf" secondAttribute="trailing" constant="20" id="vw3-4b-o7o"/>
                 <constraint firstItem="8Mo-P3-Myf" firstAttribute="top" secondItem="zpa-Ys-t6Z" secondAttribute="bottom" constant="15" id="zii-JB-72L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

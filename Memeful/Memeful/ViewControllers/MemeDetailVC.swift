@@ -22,9 +22,13 @@ class MemeDetailViewController: UIViewController {
         self.detailsTableView.dataSource = self
         self.detailsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         let headerView:HeaderView = HeaderView.fromNib()
-        headerView.frame = CGRect(x: self.view.frame.origin.x,y: self.view.frame.origin.y,width: self.view.frame.width,height: meme!.posterSize!.height + CGFloat(108))
-        headerView.setUpHeaderView(meme: self.meme!)
-        self.detailsTableView.tableHeaderView = headerView
+        
+        if let memeImageHeight = self.meme?.images?.first?.height{
+            headerView.frame = CGRect(x: self.view.frame.origin.x,y: self.view.frame.origin.y,width: self.view.frame.width,height: CGFloat(memeImageHeight) + CGFloat(108))
+            headerView.setUpHeaderView(meme: self.meme!)
+            self.detailsTableView.tableHeaderView = headerView
+        }
+        
     }
 
 
