@@ -53,15 +53,24 @@ extension HomeViewController:  UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: kMemeCellIdentifier, for: indexPath) as! MemeCell
         cell.setupMemeCell(withMeme: meme)
-        cell.layer.cornerRadius = 5
-        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
       return CGSize(width: itemSize, height: itemSize)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memeDetailVC:MemeDetailViewController = storyboard.instantiateViewController(identifier: "memeDetailVC")
+        memeDetailVC.meme = memeList[indexPath.item]
+        self.navigationController?.pushViewController(memeDetailVC, animated: true)
+    }
     
+    
+    
+    
+    //MARK: CustomLayout delegate
     func collectionView(
        _ collectionView: UICollectionView,
        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {

@@ -22,7 +22,7 @@ class MemeCell: UICollectionViewCell {
     func setupMemeCell(withMeme meme:Meme){
         
         self.titleLabel.text = meme.title?.capitalized
-        if let points = meme.likePoints{
+        if let points = meme.totalPoints{
             self.likeLabel.text = "↑ \(points) Points"
         }
         if let poster = meme.poster{
