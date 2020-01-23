@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to ProfileViewController")
+        self.view.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
     }
 
 
