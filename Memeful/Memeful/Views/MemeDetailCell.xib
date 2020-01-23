@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5n-A5-PZe">
-                        <rect key="frame" x="58" y="15" width="287" height="21"/>
+                        <rect key="frame" x="58" y="15" width="275" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="N84-Wj-gnH"/>
                         </constraints>
@@ -32,11 +32,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9c-uO-Bfe">
-                        <rect key="frame" x="389" y="15" width="55" height="21"/>
+                        <rect key="frame" x="377" y="15" width="67" height="21"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="MaM-ns-8Gc"/>
-                            <constraint firstAttribute="width" constant="55" id="ubx-92-MzK"/>
+                            <constraint firstAttribute="width" constant="67" id="ubx-92-MzK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

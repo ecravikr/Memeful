@@ -23,23 +23,27 @@ class MemeDetailCell: UITableViewCell {
       super.awakeFromNib()
     }
     
-    func setupComment(indexPath:IndexPath){
+    func setupComment(comment:Comment, indexPath:IndexPath){
         commenterPic.loadFromAssets(name: "first")
-        commenterTitle.text = "ravi  •  4h"
-        var text = ""
-        for _ in stride(from: 0, to: indexPath.section, by: 1){
-            text += "@IBOutlet weak var commenterPic: UIImageView!"
+        commenterTitle.text = "\(comment.author ?? "")  •  4h"
+//        var text = ""
+//        for _ in stride(from: 0, to: indexPath.section, by: 1){
+//            text += "@IBOutlet weak var commenterPic: UIImageView!"
+//        }
+        commentLabel.text = comment.comment
+        if comment.children!.count > 0 {
+            totalReplies.text = "\(comment.children!.count) Reply"
+            totalReplies.isHidden = false
+        }else{
+            totalReplies.isHidden = true
         }
-        commentLabel.text = text
-        
-        totalReplies.text = "1 Reply"
         totalReplies.layer.cornerRadius = 10
         totalReplies.backgroundColor = UIColor.getColor(red: 62, green: 64, blue: 69)
-        getCommentSection()
+        getCommentSection(comment: comment)
         
     }
     
-    func getCommentSection()  {
+    func getCommentSection(comment:Comment)  {
         self.commentsSectionHStack.subviews.forEach { (view) in
             view.removeFromSuperview()
         }
@@ -52,20 +56,20 @@ class MemeDetailCell: UITableViewCell {
         let color = UIColor.getColor(red: 164, green: 174, blue: 192)
         
         let ups = UILabel()
-        ups.text = "↑ 1"
+        ups.text = "↑ \(comment.ups ?? 0)"
         ups.font = font
         ups.textColor = color
         ups.textColor = UIColor.white
-        ups.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        ups.widthAnchor.constraint(equalToConstant: 50).isActive = true
         ups.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.commentsSectionHStack.addArrangedSubview(ups)
         
         let dns = UILabel.init()
-        dns.text = "↓ 1"
+        dns.text = "↓ \(comment.downs ?? 0)"
         dns.font = font
         dns.textColor = color
         dns.textColor = UIColor.white
-        dns.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        dns.widthAnchor.constraint(equalToConstant: 50).isActive = true
         dns.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.commentsSectionHStack.addArrangedSubview(dns)
         
@@ -76,7 +80,7 @@ class MemeDetailCell: UITableViewCell {
         self.replyButton?.setTitle("Reply", for: .normal)
         self.replyButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.replyButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        self.replyButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        //self.replyButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.replyButton!)
         
         self.moreButton = UIButton()
@@ -85,7 +89,7 @@ class MemeDetailCell: UITableViewCell {
         self.moreButton?.setTitle("•••", for: .normal)
         self.moreButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.moreButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        self.moreButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        //self.moreButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.moreButton!)
         
         

@@ -14,6 +14,7 @@ class MemeDetailViewController: UIViewController {
     
     @IBOutlet weak var detailsTableView: UITableView!
     var meme:Meme?
+    var commentsList:[Comment] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,18 @@ class MemeDetailViewController: UIViewController {
         let color = UIColor.getColor(red: 51, green: 53, blue: 58)
         self.detailsTableView.backgroundColor = color
         self.view.backgroundColor = color
+        self.getCommentsList()
+        
+    }
+    func getCommentsList() {
+        if let galaryId = self.meme?.id{
+            APIKit.shared.getCommentsFor(galleryHash: galaryId) { (commentsList) in
+                self.commentsList = commentsList!.data
+                DispatchQueue.main.async {
+                    self.detailsTableView.reloadData()
+                }
+            }
+        }
         
     }
     func getHeight(meme:Meme)->CGFloat{
@@ -52,15 +65,16 @@ class MemeDetailViewController: UIViewController {
 
 extension MemeDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        10
+        return self.commentsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:MemeDetailCell = tableView.dequeueReusableCell(withIdentifier: kMemeDetailCell, for: indexPath) as! MemeDetailCell
-        cell.setupComment(indexPath: indexPath)
+        let comment:Comment = self.commentsList[indexPath.section]
+        cell.setupComment(comment: comment, indexPath: indexPath)
         return cell
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -69,6 +83,9 @@ extension MemeDetailViewController: UITableViewDelegate, UITableViewDataSource{
         return footerView
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        if self.commentsList.count-1 == section{
+//            return 0
+//        }
         return 5
     }
     
