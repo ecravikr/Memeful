@@ -42,7 +42,7 @@ class MemeDetailCell: UITableViewCell {
             totalReplies.isHidden = true
         }
         totalReplies.layer.cornerRadius = 10
-        totalReplies.backgroundColor = UIColor.getColor(red: 62, green: 64, blue: 69)
+        totalReplies.backgroundColor = replyBGColor
         getCommentSection(comment: comment)
         
     }
@@ -57,30 +57,29 @@ class MemeDetailCell: UITableViewCell {
         self.commentsSectionHStack.distribution = .fill
         
         let font = UIFont.boldSystemFont(ofSize: 15)
-        let color = UIColor.getColor(red: 164, green: 174, blue: 192)
         
         let ups = UILabel()
         ups.text = "↑ \(comment.ups ?? 0)"
         ups.font = font
-        ups.textColor = color
+        ups.textColor = upsDownsColor
         ups.textColor = UIColor.white
-        ups.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        ups.widthAnchor.constraint(equalToConstant: 100).isActive = true
         ups.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.commentsSectionHStack.addArrangedSubview(ups)
         
         let dns = UILabel.init()
         dns.text = "↓ \(comment.downs ?? 0)"
         dns.font = font
-        dns.textColor = color
+        dns.textColor = upsDownsColor
         dns.textColor = UIColor.white
-        dns.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        dns.widthAnchor.constraint(equalToConstant: 100).isActive = true
         dns.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.commentsSectionHStack.addArrangedSubview(dns)
         
         
         self.replyButton = UIButton()
         self.replyButton?.titleLabel?.font = font
-        self.replyButton?.tintColor = color
+        self.replyButton?.tintColor = upsDownsColor
         self.replyButton?.setTitle("Reply", for: .normal)
         self.replyButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.replyButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
@@ -89,7 +88,7 @@ class MemeDetailCell: UITableViewCell {
         
         self.moreButton = UIButton()
         self.moreButton?.titleLabel?.font = font
-        self.moreButton?.tintColor = color
+        self.moreButton?.tintColor = upsDownsColor
         self.moreButton?.setTitle("•••", for: .normal)
         self.moreButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.moreButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true

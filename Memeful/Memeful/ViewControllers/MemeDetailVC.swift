@@ -33,9 +33,8 @@ class MemeDetailViewController: UIViewController {
             headerView.setUpHeaderView(meme: self.meme!)
             self.detailsTableView.tableHeaderView = headerView
         }
-        let color = UIColor.getColor(red: 51, green: 53, blue: 58)
-        self.detailsTableView.backgroundColor = color
-        self.view.backgroundColor = color
+        self.detailsTableView.backgroundColor = viewBGColor
+        self.view.backgroundColor = viewBGColor
         self.getCommentsList()
         
     }
