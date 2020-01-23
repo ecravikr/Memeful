@@ -16,15 +16,24 @@ class HeaderView: UIView {
     @IBOutlet weak var totalViewLabel: UILabel!
     
     func setUpHeaderView(meme:Meme){
-        self.memeButton.backgroundColor = UIColor.red
-        self.collageButton.backgroundColor = UIColor.blue
+        
+        let color = UIColor.getColor(red: 51, green: 53, blue: 58)
+        self.backgroundColor = color
+        self.imageView.backgroundColor = color
         if let totalViewsCount = meme.views{
             self.totalViewLabel.text = "\(totalViewsCount) views"
         }
         if let link = meme.images?.first?.link{
             self.imageView.load(url: URL(string: link)!)
-            //self.imageView.loadFromAssets()
+//            self.imageView.loadFromAssets()
         }
+        memeButton.backgroundColor = UIColor.red
+        memeButton.setTitle("⨁   memes", for: .normal)
+        memeButton.layer.cornerRadius = 15
+        
+        collageButton.backgroundColor = UIColor.green
+        collageButton.setTitle("⨁   college", for: .normal)
+        collageButton.layer.cornerRadius = 15
         
     }
 }

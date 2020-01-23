@@ -14,6 +14,7 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to NotificationViewController")
+        self.view.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
     }
 
 

@@ -16,6 +16,7 @@ class Meme1: NSObject {
     var totalViews:Int?
     override init() {
         super.init()
+        //default init for testing purpose
         self.title = "ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC"
         self.poster = "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg"
         self.totalPoints = 5
@@ -46,5 +47,6 @@ struct MemeImage:Codable {
     var height:Int?
     var views:Int?
     var link:String?
+    var animated:Bool?
     
 }

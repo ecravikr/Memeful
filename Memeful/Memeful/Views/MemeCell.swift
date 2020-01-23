@@ -27,7 +27,7 @@ class MemeCell: UICollectionViewCell {
         }
         if let link = meme.images?.first?.link{
             self.imageView.load(url: URL(string: link)!)
-            //self.imageView.loadFromAssets()
+//            self.imageView.loadFromAssets()
         }
         
     }
