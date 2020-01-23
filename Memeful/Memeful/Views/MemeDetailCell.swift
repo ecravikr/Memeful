@@ -1,0 +1,101 @@
+//
+//  MemeDetailCell.swift
+//  Memeful
+//
+//  Created by Sunmoon on 23/01/20.
+//  Copyright © 2020 Ravichandra. All rights reserved.
+//
+
+import UIKit
+
+class MemeDetailCell: UITableViewCell {
+    @IBOutlet weak var commenterPic: UIImageView!
+    @IBOutlet weak var commentSection: UIView!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var totalReplies: UILabel!
+    @IBOutlet weak var commenterTitle: UILabel!
+    @IBOutlet weak var commentsSectionHStack: UIStackView!
+    
+    var replyButton:UIButton?
+    var moreButton:UIButton?
+    
+    override func awakeFromNib() {
+      super.awakeFromNib()
+    }
+    
+    func setupComment(indexPath:IndexPath){
+        commenterPic.loadFromAssets(name: "first")
+        commenterTitle.text = "ravi  •  4h"
+        var text = ""
+        for _ in stride(from: 0, to: indexPath.section, by: 1){
+            text += "@IBOutlet weak var commenterPic: UIImageView!"
+        }
+        commentLabel.text = text
+        
+        totalReplies.text = "1 Reply"
+        totalReplies.layer.cornerRadius = 10
+        totalReplies.backgroundColor = UIColor.getColor(red: 62, green: 64, blue: 69)
+        getCommentSection()
+        
+    }
+    
+    func getCommentSection()  {
+        self.commentsSectionHStack.subviews.forEach { (view) in
+            view.removeFromSuperview()
+        }
+        self.commentsSectionHStack.axis = .horizontal
+        self.commentsSectionHStack.alignment = .leading
+        self.commentsSectionHStack.spacing = 30
+        self.commentsSectionHStack.distribution = .fill
+        
+        let font = UIFont.boldSystemFont(ofSize: 15)
+        let color = UIColor.getColor(red: 164, green: 174, blue: 192)
+        
+        let ups = UILabel()
+        ups.text = "↑ 1"
+        ups.font = font
+        ups.textColor = color
+        ups.textColor = UIColor.white
+        ups.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        ups.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.commentsSectionHStack.addArrangedSubview(ups)
+        
+        let dns = UILabel.init()
+        dns.text = "↓ 1"
+        dns.font = font
+        dns.textColor = color
+        dns.textColor = UIColor.white
+        dns.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        dns.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.commentsSectionHStack.addArrangedSubview(dns)
+        
+        
+        self.replyButton = UIButton()
+        self.replyButton?.titleLabel?.font = font
+        self.replyButton?.tintColor = color
+        self.replyButton?.setTitle("Reply", for: .normal)
+        self.replyButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        self.replyButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.replyButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        self.commentsSectionHStack.addArrangedSubview(self.replyButton!)
+        
+        self.moreButton = UIButton()
+        self.moreButton?.titleLabel?.font = font
+        self.moreButton?.tintColor = color
+        self.moreButton?.setTitle("•••", for: .normal)
+        self.moreButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        self.moreButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.moreButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        self.commentsSectionHStack.addArrangedSubview(self.moreButton!)
+        
+        
+    }
+    
+    func buttonClicked(_ sender: UIButton) {
+      if sender === replyButton {
+        print("Hanle reply button action here")
+      } else if sender === moreButton {
+        print("Handle more button action here")
+      }
+    }
+}

@@ -8,6 +8,7 @@
 
 import UIKit
 
+let kMemeDetailCell = "MemeDetailCell"
 
 class MemeDetailViewController: UIViewController {
     
@@ -20,7 +21,8 @@ class MemeDetailViewController: UIViewController {
         print("Welcome to MemeDetailViewController")
         self.detailsTableView.delegate = self
         self.detailsTableView.dataSource = self
-        self.detailsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.detailsTableView.register(UINib(nibName: kMemeDetailCell, bundle: nil), forCellReuseIdentifier: kMemeDetailCell)
+        //self.detailsTableView.register(MemeDetailCell.self, forCellReuseIdentifier: "kMemeDetailCell")
         let headerView:HeaderView = HeaderView.fromNib()
         
         if let memeImageHeight = self.meme?.images?.first?.height{
@@ -44,9 +46,17 @@ extension MemeDetailViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "ABC"
+        let cell:MemeDetailCell = tableView.dequeueReusableCell(withIdentifier: kMemeDetailCell, for: indexPath) as! MemeDetailCell
+        cell.setupComment(indexPath: indexPath)
         return cell
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
+        footerView.backgroundColor = UIColor.black
+        return footerView
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
     }
     
     
