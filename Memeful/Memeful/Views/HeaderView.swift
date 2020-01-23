@@ -24,8 +24,8 @@ class HeaderView: UIView {
             self.totalViewLabel.text = "\(totalViewsCount) views"
         }
         if let link = meme.images?.first?.link{
-//            self.imageView.load(url: URL(string: link)!)
-            self.imageView.loadFromAssets()
+            self.imageView.load(url: URL(string: link)!)
+//            self.imageView.loadFromAssets()
         }
         memeButton.backgroundColor = UIColor.red
         memeButton.setTitle("⨁   memes", for: .normal)

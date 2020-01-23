@@ -40,10 +40,12 @@ class MemeDetailViewController: UIViewController {
         
     }
     func getCommentsList() {
+        self.view.showProgress()
         if let galaryId = self.meme?.id{
             APIKit.shared.getCommentsFor(galleryHash: galaryId) { (commentsList) in
                 self.commentsList = commentsList!.data
                 DispatchQueue.main.async {
+                    self.view.hideProgress()
                     self.detailsTableView.reloadData()
                 }
             }
@@ -51,10 +53,13 @@ class MemeDetailViewController: UIViewController {
         
     }
     func getHeight(meme:Meme)->CGFloat{
-        if let memeImageHeight = self.meme?.images?.first?.height, let memeImageWidth = self.meme?.images?.first?.width{
-            let aspectRatio = CGFloat(memeImageHeight)/CGFloat(memeImageWidth)
-            let tabelViewWidth = self.view.frame.width
-            return ((tabelViewWidth/aspectRatio) + 108)
+        
+        if !(meme.images?.first?.animated)!{
+            if let memeImageHeight = self.meme?.images?.first?.height, let memeImageWidth = self.meme?.images?.first?.width{
+                let aspectRatio = CGFloat(memeImageHeight) / CGFloat(memeImageWidth)
+                let tabelViewWidth = self.view.frame.width
+                return ((tabelViewWidth/aspectRatio) + 108)
+            }
         }
         return 108
     }

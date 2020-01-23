@@ -25,11 +25,15 @@ class MemeDetailCell: UITableViewCell {
     
     func setupComment(comment:Comment, indexPath:IndexPath){
         commenterPic.loadFromAssets(name: "first")
-        commenterTitle.text = "\(comment.author ?? "")  •  4h"
-//        var text = ""
-//        for _ in stride(from: 0, to: indexPath.section, by: 1){
-//            text += "@IBOutlet weak var commenterPic: UIImageView!"
-//        }
+        if let dateTime = comment.datetime{
+            let dateStr = Date(timeIntervalSince1970: TimeInterval(dateTime)).getTimeAgoString()
+            //let dateStr = Date().getTimeAgoString()
+            commenterTitle.text = "\(comment.author ?? "")  •  \(dateStr)"
+        }else{
+            commenterTitle.text = "\(comment.author ?? "")"
+        }
+        //let a = Date.getElapsedInterval(Date(timeIntervalSince1970: 0))
+        
         commentLabel.text = comment.comment
         if comment.children!.count > 0 {
             totalReplies.text = "\(comment.children!.count) Reply"

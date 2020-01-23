@@ -15,17 +15,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var memeCollectionView: UICollectionView!
     var memeList:Array<Meme> = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to Home VC")
         self.view.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
         
-        //Collectionview settings
-        memeCollectionView.delegate = self
-        memeCollectionView.dataSource = self
-        memeCollectionView.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
-        memeCollectionView.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
+        //Navigation bar
         if let navigationBar = self.navigationController?.navigationBar {
             let gradient = CAGradientLayer()
             var bounds = navigationBar.bounds
@@ -36,6 +33,16 @@ class HomeViewController: UIViewController {
             gradient.startPoint = CGPoint(x: 0, y: 0)
             gradient.endPoint = CGPoint(x: 1, y: 0)
             navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
+        }
+        
+        
+        //Collectionview settings
+        memeCollectionView.delegate = self
+        memeCollectionView.dataSource = self
+        memeCollectionView.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
+        memeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        if let layout = memeCollectionView?.collectionViewLayout as? CustomLayout {
+          layout.delegate = self
         }
         
         getMemeList()
@@ -56,9 +63,11 @@ class HomeViewController: UIViewController {
     }
     
     func getMemeList(){
+        self.view.showProgress()
         APIKit.shared.getGalary { (aDataList) in
             self.memeList = aDataList!.data
             DispatchQueue.main.async {
+                self.view.hideProgress()
                 self.memeCollectionView.reloadData()
             }            
         }
@@ -101,6 +110,6 @@ extension HomeViewController:  UICollectionViewDelegate, UICollectionViewDataSou
        _ collectionView: UICollectionView,
        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
         let meme = memeList[indexPath.item]
-        return CGFloat(meme.images?.first?.height ?? 0)
+        return CGFloat(meme.images?.first?.height ?? 0)/2
      }
 }
