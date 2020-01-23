@@ -37,10 +37,8 @@ class HomeViewController: UIViewController {
             gradient.endPoint = CGPoint(x: 1, y: 0)
             navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
         }
-        //self.tabBarController?.tabBar.isTranslucent = false
-        //self.tabBarController?.tabBar.tintColor = UIColor.white
-        //self.tabBarController?.tabBar.backgroundColor = UIColor.getColor(red: 72, green: 74, blue: 81)
-        //getMemeList()
+        
+        getMemeList()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
