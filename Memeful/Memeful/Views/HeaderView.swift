@@ -16,8 +16,10 @@ class HeaderView: UIView {
     @IBOutlet weak var totalViewLabel: UILabel!
     
     func setUpHeaderView(meme:Meme){
-        self.memeButton.backgroundColor = UIColor.red
-        self.collageButton.backgroundColor = UIColor.blue
+        
+        let color = UIColor.getColor(red: 51, green: 53, blue: 58)
+        self.backgroundColor = color
+        self.imageView.backgroundColor = color
         if let totalViewsCount = meme.views{
             self.totalViewLabel.text = "\(totalViewsCount) views"
         }

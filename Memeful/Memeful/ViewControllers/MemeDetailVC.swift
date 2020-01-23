@@ -22,15 +22,25 @@ class MemeDetailViewController: UIViewController {
         self.detailsTableView.delegate = self
         self.detailsTableView.dataSource = self
         self.detailsTableView.register(UINib(nibName: kMemeDetailCell, bundle: nil), forCellReuseIdentifier: kMemeDetailCell)
-        //self.detailsTableView.register(MemeDetailCell.self, forCellReuseIdentifier: "kMemeDetailCell")
         let headerView:HeaderView = HeaderView.fromNib()
         
-        if let memeImageHeight = self.meme?.images?.first?.height{
-            headerView.frame = CGRect(x: self.view.frame.origin.x,y: self.view.frame.origin.y,width: self.view.frame.width,height: CGFloat(memeImageHeight) + CGFloat(108))
+        if let _ = self.meme?.images?.first?.height{
+            headerView.frame = CGRect(x: self.view.frame.origin.x,
+                   y: self.view.frame.origin.y,
+                   width: self.view.frame.width,
+                   height: self.getHeight(meme: meme!))
             headerView.setUpHeaderView(meme: self.meme!)
             self.detailsTableView.tableHeaderView = headerView
         }
         
+    }
+    func getHeight(meme:Meme)->CGFloat{
+        if let memeImageHeight = self.meme?.images?.first?.height, let memeImageWidth = self.meme?.images?.first?.width{
+            let aspectRatio = CGFloat(memeImageHeight)/CGFloat(memeImageWidth)
+            let tabelViewWidth = self.view.frame.width
+            return ((tabelViewWidth/aspectRatio) + 108)
+        }
+        return 108
     }
 
 
