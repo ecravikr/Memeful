@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to Home VC")
-        self.view.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
+        self.view.backgroundColor = viewBGColor
         
         //Navigation bar
         if let navigationBar = self.navigationController?.navigationBar {
@@ -28,8 +28,8 @@ class HomeViewController: UIViewController {
             var bounds = navigationBar.bounds
             bounds.size.height += UIApplication.shared.statusBarFrame.size.height
             gradient.frame = bounds
-            gradient.colors = [UIColor.getColor(red: 31, green: 115, blue: 152).cgColor,
-                               UIColor.getColor(red: 18, green: 162, blue: 100).cgColor]
+            gradient.colors = [navBarGradientColor_1.cgColor,
+                               navBarGradientColor_2.cgColor]
             gradient.startPoint = CGPoint(x: 0, y: 0)
             gradient.endPoint = CGPoint(x: 1, y: 0)
             navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         //Collectionview settings
         memeCollectionView.delegate = self
         memeCollectionView.dataSource = self
-        memeCollectionView.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
+        memeCollectionView.backgroundColor = viewBGColor
         memeCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         if let layout = memeCollectionView?.collectionViewLayout as? CustomLayout {
           layout.delegate = self

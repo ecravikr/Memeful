@@ -14,7 +14,7 @@ class LiveViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to LiveViewController")
-        self.view.backgroundColor = UIColor.getColor(red: 28, green: 28, blue: 30)
+        self.view.backgroundColor = viewBGColor
     }
 
 
