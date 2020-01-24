@@ -30,7 +30,8 @@ Need to customize Details screen Nav bar to disply following
   -- author
   -- follow link
 
-Need to implement avatar who commented - Placehoder image is implemented
+Need to implement avatar who commented - Placehoder image is implemented.
+Need to work on branding to match given UI/UX in some cases.
 
 # Issue
 Observed that, details screen poster display not with proper size  
