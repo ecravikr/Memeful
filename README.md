@@ -37,8 +37,15 @@ Need to work on branding to match given UI/UX in some cases.
 Observed that, details screen poster display not with proper size  
 
 # Screenshots
+Screen 1 - Home screen
 ![Screenshot](https://github.com/krsunmoon/Memeful/blob/master/Screenhots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20Pro%20Max%20-%202020-01-24%20at%2022.25.15.png)
+
+Screen 2 - Details screen with poster
 ![Screenshot](https://github.com/krsunmoon/Memeful/blob/master/Screenhots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20Pro%20Max%20-%202020-01-24%20at%2022.26.10.png)
+
+Screen 3 - Details screen with comments section
 ![Screenshot](https://github.com/krsunmoon/Memeful/blob/master/Screenhots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20Pro%20Max%20-%202020-01-24%20at%2022.25.37.png)
+
+Screen 4 - Details screen with comments section
 ![Screenshot](https://github.com/krsunmoon/Memeful/blob/master/Screenhots/Simulator%20Screen%20Shot%20-%20iPhone%2011%20Pro%20Max%20-%202020-01-24%20at%2022.25.48.png)
 
