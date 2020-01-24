@@ -20,6 +20,12 @@ class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Welcome to MemeDetailViewController")
+        if let title = meme?.title{
+            self.navigationItem.title = title
+        }
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         self.detailsTableView.delegate = self
         self.detailsTableView.dataSource = self
         self.detailsTableView.register(UINib(nibName: kMemeDetailCell, bundle: nil), forCellReuseIdentifier: kMemeDetailCell)

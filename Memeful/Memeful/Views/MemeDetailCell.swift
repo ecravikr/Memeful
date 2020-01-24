@@ -64,7 +64,7 @@ class MemeDetailCell: UITableViewCell {
         self.upsButton?.titleLabel?.font = font
         self.upsButton?.tintColor = upsDownsColor
         self.upsButton?.setTitle("↑ \(comment.ups ?? 0)", for: .normal)
-        self.upsButton!.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.upsButton!.widthAnchor.constraint(equalToConstant: 75).isActive = true
         self.upsButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.upsButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.upsButton!)
@@ -74,7 +74,7 @@ class MemeDetailCell: UITableViewCell {
         self.downsButton?.titleLabel?.font = font
         self.downsButton?.tintColor = upsDownsColor
         self.downsButton?.setTitle("↓ \(comment.downs ?? 0)", for: .normal)
-        self.downsButton!.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.downsButton!.widthAnchor.constraint(equalToConstant: 75).isActive = true
         self.downsButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
         self.downsButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.downsButton!)
