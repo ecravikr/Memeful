@@ -24,11 +24,7 @@ Click on a meme to see it's details with comment's.
 
 # Pending tasks
 Need to add Segmented control on Home screen nav bar.
-Need to customize Details screen Nav bar to disply following
-Author avatar
-Meme title
-author
-follow link
+Need to customize Details screen Nav bar to disply Author avatar, Meme title, author and follow link.
 
 Need to implement avatar who commented - Placeholder image is implemented.
 Need to work on branding to match given UI/UX in some cases.
