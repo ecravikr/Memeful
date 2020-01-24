@@ -16,6 +16,8 @@ class MemeDetailCell: UITableViewCell {
     @IBOutlet weak var commenterTitle: UILabel!
     @IBOutlet weak var commentsSectionHStack: UIStackView!
     
+    var upsButton:UIButton?
+    var downsButton:UIButton?
     var replyButton:UIButton?
     var moreButton:UIButton?
     
@@ -58,23 +60,24 @@ class MemeDetailCell: UITableViewCell {
         
         let font = UIFont.boldSystemFont(ofSize: 15)
         
-        let ups = UILabel()
-        ups.text = "↑ \(comment.ups ?? 0)"
-        ups.font = font
-        ups.textColor = upsDownsColor
-        ups.textColor = UIColor.white
-        ups.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        ups.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        self.commentsSectionHStack.addArrangedSubview(ups)
+        self.upsButton = UIButton()
+        self.upsButton?.titleLabel?.font = font
+        self.upsButton?.tintColor = upsDownsColor
+        self.upsButton?.setTitle("↑ \(comment.ups ?? 0)", for: .normal)
+        self.upsButton!.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.upsButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.upsButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
+        self.commentsSectionHStack.addArrangedSubview(self.upsButton!)
         
-        let dns = UILabel.init()
-        dns.text = "↓ \(comment.downs ?? 0)"
-        dns.font = font
-        dns.textColor = upsDownsColor
-        dns.textColor = UIColor.white
-        dns.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        dns.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        self.commentsSectionHStack.addArrangedSubview(dns)
+        
+        self.downsButton = UIButton()
+        self.downsButton?.titleLabel?.font = font
+        self.downsButton?.tintColor = upsDownsColor
+        self.downsButton?.setTitle("↓ \(comment.downs ?? 0)", for: .normal)
+        self.downsButton!.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.downsButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        self.downsButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
+        self.commentsSectionHStack.addArrangedSubview(self.downsButton!)
         
         
         self.replyButton = UIButton()
@@ -83,7 +86,7 @@ class MemeDetailCell: UITableViewCell {
         self.replyButton?.setTitle("Reply", for: .normal)
         self.replyButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.replyButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        //self.replyButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        self.replyButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.replyButton!)
         
         self.moreButton = UIButton()
@@ -92,17 +95,18 @@ class MemeDetailCell: UITableViewCell {
         self.moreButton?.setTitle("•••", for: .normal)
         self.moreButton!.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.moreButton!.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        //self.moreButton!.addTarget(self, action: Selector(("buttonClicked:")), for: .touchUpInside)
+        self.moreButton!.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
         self.commentsSectionHStack.addArrangedSubview(self.moreButton!)
-        
-        
     }
-    
-    func buttonClicked(_ sender: UIButton) {
-      if sender === replyButton {
-        print("Hanle reply button action here")
-      } else if sender === moreButton {
-        print("Handle more button action here")
-      }
+    @objc func pressed(sender: UIButton!) {
+        if sender === upsButton {
+          print("Hanle up click button action here")
+        } else if sender === downsButton {
+          print("Handle down click button action here")
+        }else if sender === replyButton {
+          print("Hanle reply button action here")
+        } else if sender === moreButton {
+          print("Handle more button action here")
+        }
     }
 }

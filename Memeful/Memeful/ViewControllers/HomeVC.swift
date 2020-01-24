@@ -73,7 +73,14 @@ class HomeViewController: UIViewController {
         }
         
     }
-
+    @IBAction func refreshMemes(_ sender: Any) {
+        print("Add refresh memes logic here")
+    }
+    @IBAction func createNewMeme(_ sender: Any) {
+        print("Add cresting new meme logic here")
+    }
+    
+    
 
 }
 
