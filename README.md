@@ -3,7 +3,7 @@ Memeful
 
 # Home screen
 Implemented Home screen with dynamic collectionview cell size based on meme poster image size.
-Implemeted imgur api's using NSURLSession in APIKit to send request and get back the response.
+Implemented imgur api's using NSURLSession in APIKit to send request and get back the response.
 MemeList uses 'Codable' protocol to map json response.
 
 # Details screen
@@ -19,18 +19,18 @@ clean and build project and run.
 
 # Testing
 Testing done on iPhone 11 Pro Max only.
-Once Memeful app loads on iPhone Simulator, app launchs with home screen with meme's list
+Once Memeful app loads on iPhone Simulator, app launch’s with home screen with meme's list
 Click on a meme to see it's details with comment's.
 
 # Pending tasks
-Need to add Segmented cotrol on Home screen nav bar.
+Need to add Segmented control on Home screen nav bar.
 Need to customize Details screen Nav bar to disply following
   -- Author avatar
   -- Meme title
   -- author
   -- follow link
 
-Need to implement avatar who commented - Placehoder image is implemented.
+Need to implement avatar who commented - Placeholder image is implemented.
 Need to work on branding to match given UI/UX in some cases.
 
 # Issue
