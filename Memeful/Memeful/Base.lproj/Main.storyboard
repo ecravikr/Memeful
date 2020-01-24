@@ -97,9 +97,15 @@
                     <navigationItem key="navigationItem" id="hSI-eY-CCD">
                         <barButtonItem key="leftBarButtonItem" image="arrow.up.arrow.down" catalog="system" id="khJ-uA-d8K">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="refreshMemes:" destination="9pv-A4-QxB" id="Kkg-hK-6Yr"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="hsh-qA-pdc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="createNewMeme:" destination="9pv-A4-QxB" id="c2o-4D-ryY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

@@ -22,18 +22,7 @@ class HomeViewController: UIViewController {
         print("Welcome to Home VC")
         self.view.backgroundColor = viewBGColor
         
-        //Navigation bar
-        if let navigationBar = self.navigationController?.navigationBar {
-            let gradient = CAGradientLayer()
-            var bounds = navigationBar.bounds
-            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
-            gradient.frame = bounds
-            gradient.colors = [navBarGradientColor_1.cgColor,
-                               navBarGradientColor_2.cgColor]
-            gradient.startPoint = CGPoint(x: 0, y: 0)
-            gradient.endPoint = CGPoint(x: 1, y: 0)
-            navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
-        }
+        
         
         
         //Collectionview settings
@@ -50,9 +39,32 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        //Navigation bar
+        //self.navigationController?.navigationBar.standardAppearance.backgroundColor = UIColor.green
+        if let navigationBar = self.navigationController?.navigationBar {
+            let gradient = CAGradientLayer()
+            var bounds = navigationBar.bounds
+            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+            gradient.frame = bounds
+            gradient.colors = [navBarGradientColor_1.cgColor,
+                               navBarGradientColor_2.cgColor]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 1, y: 0)
+            navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if let navigationBar = self.navigationController?.navigationBar {
+            let gradient = CAGradientLayer()
+            var bounds = navigationBar.bounds
+            bounds.size.height += UIApplication.shared.statusBarFrame.size.height
+            gradient.frame = bounds
+            gradient.colors = [navigationBarColor.cgColor,navigationBarColor.cgColor]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 1, y: 0)
+            navigationBar.setBackgroundImage(self.imageFromLayer(layer: gradient), for: .default)
+        }
     }
     func imageFromLayer(layer:CALayer) -> UIImage {
         UIGraphicsBeginImageContext(layer.frame.size)
@@ -73,7 +85,14 @@ class HomeViewController: UIViewController {
         }
         
     }
-
+    @IBAction func refreshMemes(_ sender: Any) {
+        print("Add refresh memes logic here")
+    }
+    @IBAction func createNewMeme(_ sender: Any) {
+        print("Add cresting new meme logic here")
+    }
+    
+    
 
 }
 
